@@ -8,4 +8,4 @@ require 'calibration_frequency_changes'
 $stdout.sync = true
 $stderr.sync = true
 
-puts CalibrationFrequencyChanges.new(ARGV.first).resulting_frequency
+puts CalibrationFrequencyChanges.new(ARGV.first).repeated_frequency
