@@ -1,14 +1,16 @@
 module AOC
   module Day2
     def self.part1(input)
-      twos = 0
-      threes = 0
-      input.each do |line|
-        counts = {}
-        line.each_char { |char| counts[char] = line.count(char) }
-        twos += 1 if counts.values.include?(2)
-        threes += 1 if counts.values.include?(3)
-      end
+      twos, threes = input.reduce([0, 0]) { |(twos, threes), line|
+        line_counts = line.each_char.reduce(Hash.new(0)) { |counts_by_char, char|
+          counts_by_char[char] += 1
+          counts_by_char
+        }.values
+        [
+          line_counts.include?(2) ? twos + 1 : twos,
+          line_counts.include?(3) ? threes + 1 : threes
+        ]
+      }
       twos * threes
     end
 
