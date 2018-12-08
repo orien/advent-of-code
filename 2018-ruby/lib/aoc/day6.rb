@@ -57,36 +57,14 @@ module AOC
     class Grid
       def initialize(coordinates = [])
         @coordinates = coordinates
+        @min_x, @max_x = coordinates.map(&:x).minmax
+        @min_y, @max_y = coordinates.map(&:y).minmax
       end
 
-      attr_reader :coordinates
+      attr_reader :coordinates, :min_x, :max_x, :min_y, :max_y
 
       def points_around_coordinates
         (min_x..max_x).to_a.product((min_y..max_y).to_a)
-      end
-
-      def x_values
-        @x_values ||= coordinates.map(&:x)
-      end
-
-      def y_values
-        @y_values ||= coordinates.map(&:y)
-      end
-
-      def max_x
-        @max_x ||= x_values.max
-      end
-
-      def min_x
-        @min_x ||= x_values.min
-      end
-
-      def max_y
-        @max_y ||= y_values.max
-      end
-
-      def min_y
-        @min_y ||= y_values.min
       end
     end
 
