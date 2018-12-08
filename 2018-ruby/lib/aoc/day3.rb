@@ -7,14 +7,14 @@ module AOC
     def self.part2(input)
       claims = claims(input)
       state = claim_state(claims)
-      claim = claims.find { |claim|
+      claim_without_overlaps = claims.find { |claim|
         (claim.x..claim.xi).all? { |x|
           (claim.y..claim.yi).all? { |y|
             state[[x, y]] == 1
           }
         }
       }
-      claim.id
+      claim_without_overlaps.id
     end
 
     def self.claims(input)

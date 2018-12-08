@@ -14,7 +14,7 @@ RSpec.describe AOC::Day1 do
 
     context 'given "-1, -2, -3"' do
       let(:input) { "-1\n-2\n-3\n" }
-      it { should eq -6 }
+      it { should eq(-6) }
     end
   end
 
