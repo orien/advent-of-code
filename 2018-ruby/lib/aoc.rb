@@ -2,7 +2,7 @@ Dir.glob(__dir__ + '/aoc/day*.rb').each { |f| require f }
 
 module AOC
   def self.celebrate
-    (1..8).each do |day|
+    (1..9).each do |day|
       solution = AOC.const_get("Day#{day}")
       puts <<~MESSAGE
         Day ##{day}
