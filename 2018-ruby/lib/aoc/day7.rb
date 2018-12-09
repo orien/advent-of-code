@@ -32,10 +32,8 @@ module AOC
     end
 
     def self.part2(input, number_of_workers: 5, base_step_time: 60)
-      instructions = parse_instructions(input)
-      workers = []
-      number_of_workers.times { workers << Worker.new(base_step_time) }
-      work(0, workers, instructions, [])
+      workers = Array.new(number_of_workers) { Worker.new(base_step_time) }
+      work(0, workers, parse_instructions(input), [])
     end
 
     def self.work(second, workers, instructions, complete)
