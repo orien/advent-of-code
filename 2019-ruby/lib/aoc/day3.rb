@@ -9,6 +9,11 @@ module AOC
     end
 
     def self.part2(input)
+      centre = [0,0]
+      path1 = path(instructions(input.readline), centre, [])
+      path2 = path(instructions(input.readline), centre, [])
+      intersections = path1 & path2
+      intersections.map { |inter| path1.index(inter) + path2.index(inter) + 2 }.min
     end
 
     def self.instructions(input_line)
