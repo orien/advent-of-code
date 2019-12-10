@@ -1,4 +1,10 @@
 module AOC
+  # enable tail-call optimisation
+  RubyVM::InstructionSequence.compile_option = {
+    tailcall_optimization: true,
+    trace_instruction: false
+  }
+
   SOLUTIONS = Dir.glob(__dir__ + '/aoc/day*.rb').freeze
   SOLUTIONS.each { |f| require f }
 
