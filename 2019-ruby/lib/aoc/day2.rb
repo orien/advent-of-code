@@ -1,17 +1,20 @@
 module AOC
   module Day2
     def self.part1(input)
-      state = input.first.split(",").map(&:to_i)
-      program(state, 12, 2)
+      run(program(input), 12, 2)
     end
 
     def self.part2(input)
-      state = input.first.split(",").map(&:to_i)
-      noun, verb = (0..99).to_a.permutation(2).find { |noun, verb| program(state, noun, verb) == 19690720 }
+      state = program(input)
+      noun, verb = (0..99).to_a.permutation(2).find { |noun, verb| run(state, noun, verb) == 19690720 }
       100 * noun + verb
     end
 
-    def self.program(state, noun, verb)
+    def self.program(input)
+      input.first.split(",").map(&:to_i)
+    end
+
+    def self.run(state, noun, verb)
       state[1] = noun
       state[2] = verb
       process(state, 0).first
