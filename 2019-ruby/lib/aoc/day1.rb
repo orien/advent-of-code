@@ -1,11 +1,15 @@
 module AOC
   module Day1
     def self.part1(input)
-      input.map(&:to_i).map(&method(:fuel_for_mass)).sum
+      module_masses(input).map(&method(:fuel_for_mass)).sum
     end
 
     def self.part2(input)
-      input.map(&:to_i).map(&method(:fuel_for_mass_plus_fuel)).sum
+      module_masses(input).map(&method(:fuel_for_mass_plus_fuel)).sum
+    end
+
+    def self.module_masses(input)
+      input.map(&:to_i)
     end
 
     def self.fuel_for_mass(mass)
