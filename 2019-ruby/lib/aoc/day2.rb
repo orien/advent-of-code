@@ -6,7 +6,7 @@ module AOC
 
     def self.part2(input)
       state = program(input)
-      noun, verb = (0..99).to_a.permutation(2).find { |noun, verb| run(state, noun, verb) == 19690720 }
+      noun, verb = (0..99).to_a.repeated_permutation(2).find { |noun, verb| run(state, noun, verb) == 19690720 }
       100 * noun + verb
     end
 
