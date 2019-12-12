@@ -11,12 +11,11 @@ module AOC
   def self.celebrate
     (1..SOLUTIONS.count).each do |day|
       solution = AOC.const_get("Day#{day}")
-      puts <<~MESSAGE
-        Day ##{day}
-          part 1: #{solution.part1(input(day))}
-          part 2: #{solution.part2(input(day))}
-
-      MESSAGE
+      puts "Day ##{day}"
+      print "  part 1: "
+      puts solution.part1(input(day))
+      print "  part 2: "
+      puts solution.part2(input(day))
     end
   end
 
