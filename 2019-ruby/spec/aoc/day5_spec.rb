@@ -46,5 +46,95 @@ RSpec.describe AOC::Day5 do
         specify { expect { process }.to output("100").to_stdout }
       end
     end
+
+    describe 'equals' do
+      context 'given [3,9,8,9,10,9,4,9,99,-1,8]' do
+        let(:state) { [3,9,8,9,10,9,4,9,99,-1,8] }
+
+        context 'input "8"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("8\n") }
+          specify { expect { process }.to output("1").to_stdout }
+        end
+
+        context 'input "9"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("9\n") }
+          specify { expect { process }.to output("0").to_stdout }
+        end
+      end
+
+      context 'given [3,3,1108,-1,8,3,4,3,99]' do
+        let(:state) { [3,3,1108,-1,8,3,4,3,99] }
+
+        context 'input "8"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("8\n") }
+          specify { expect { process }.to output("1").to_stdout }
+        end
+
+        context 'input "9"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("9\n") }
+          specify { expect { process }.to output("0").to_stdout }
+        end
+      end
+    end
+
+    describe 'less than' do
+      context 'given [3,9,7,9,10,9,4,9,99,-1,8]' do
+        let(:state) { [3,9,7,9,10,9,4,9,99,-1,8] }
+
+        context 'input "8"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("8\n") }
+          specify { expect { process }.to output("0").to_stdout }
+        end
+
+        context 'input "7"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("7\n") }
+          specify { expect { process }.to output("1").to_stdout }
+        end
+      end
+
+      context 'given [3,3,1107,-1,8,3,4,3,99]' do
+        let(:state) { [3,3,1107,-1,8,3,4,3,99] }
+
+        context 'input "8"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("8\n") }
+          specify { expect { process }.to output("0").to_stdout }
+        end
+
+        context 'input "7"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("7\n") }
+          specify { expect { process }.to output("1").to_stdout }
+        end
+      end
+    end
+
+    describe 'jumps' do
+      context 'given [3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9]' do
+        let(:state) { [3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9] }
+
+        context 'input "0"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("0\n") }
+          specify { expect { process }.to output("0").to_stdout }
+        end
+
+        context 'input "1"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("1\n") }
+          specify { expect { process }.to output("1").to_stdout }
+        end
+      end
+
+      context 'given [3,3,1105,-1,9,1101,0,0,12,4,12,99,1]' do
+        let(:state) { [3,3,1105,-1,9,1101,0,0,12,4,12,99,1] }
+
+        context 'input "0"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("0\n") }
+          specify { expect { process }.to output("0").to_stdout }
+        end
+
+        context 'input "1"' do
+          before { allow(AOC::Day5).to receive(:gets).and_return("1\n") }
+          specify { expect { process }.to output("1").to_stdout }
+        end
+      end
+    end
   end
 end
