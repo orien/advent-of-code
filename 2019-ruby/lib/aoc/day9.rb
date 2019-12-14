@@ -8,6 +8,10 @@ module AOC
     end
 
     def self.part2(input)
+      data = input.first.split(",").map(&:to_i)
+      output = []
+      Program.new(data, [2], output).process
+      output.first
     end
 
     class Program
